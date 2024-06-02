@@ -1,0 +1,28 @@
+package com.mtesazi.ems.swagger;
+
+import java.util.List;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.servers.Server;
+
+@Configuration
+public class Swagger {
+    @Bean
+    public OpenAPI swaggerConfiguration(){
+        Server server = new Server();
+        server.setUrl("http://localhost:8080");
+        server.setDescription("Development");
+
+        Contact contact = new Contact();
+        contact.setName("Bongani Gumede");
+        contact.setEmail("Mtesazi@gmail.com");
+        Info information = new Info()
+                .title("Employee Management System API")
+                .contact(contact)
+                .description("This API exposes endpoints to manage employees.");
+        return new OpenAPI().info(information).servers(List.of(server));
+    }
+}
