@@ -1,13 +1,13 @@
 # Employee Management System (EMS) - Backend
 
-A robust REST API backend for managing employee information, built with **Spring Boot 3.3.0** and **Java 21**. This application provides complete CRUD operations for employee records with MySQL database integration and Swagger API documentation.
+A robust REST API backend for managing employee information, built with **Spring Boot 3.3.0** and **Java 21**. This application provides complete CRUD operations for employee records with PostgreSQL database integration and Swagger API documentation.
 
 ## 🎯 Features
 
 - **Employee CRUD Operations**: Create, read, update, and delete employee records
 - **RESTful API**: Clean and intuitive REST endpoints
 - **Swagger Documentation**: Interactive API documentation with Swagger UI
-- **MySQL Database**: Persistent data storage with JPA/Hibernate ORM
+- **PostgreSQL Database**: Persistent data storage with JPA/Hibernate ORM
 - **Input Validation**: Email uniqueness and data integrity constraints
 - **Error Handling**: Custom exception handling with ResourceNotFoundException
 - **Lombok Integration**: Reduced boilerplate code with annotations
@@ -17,7 +17,7 @@ A robust REST API backend for managing employee information, built with **Spring
 
 - **Java 21** or higher
 - **Maven 3.8.7** or higher
-- **MySQL 8.0** or higher
+- **PostgreSQL 14** or higher
 - **Git**
 
 ## 🚀 Getting Started
@@ -29,13 +29,13 @@ git clone https://github.com/Mtesazi/ems-back-end.git
 cd ems-back-end-ems
 ```
 
-### 2. Configure MySQL Database
+### 2. Configure PostgreSQL Database
 
 Update `src/main/resources/application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/ems
-spring.datasource.username=root
+spring.datasource.url=jdbc:postgresql://localhost:5432/ems
+spring.datasource.username=postgres
 spring.datasource.password=your_password
 ```
 
@@ -133,7 +133,7 @@ src/
 
 - **Framework**: Spring Boot 3.3.0
 - **Language**: Java 21
-- **Database**: MySQL 8.0+
+- **Database**: PostgreSQL 14+
 - **ORM**: Hibernate/JPA
 - **Build Tool**: Maven
 - **Documentation**: Swagger/OpenAPI 3.0
@@ -146,7 +146,7 @@ src/
 - spring-boot-starter-tomcat
 - springdoc-openapi-starter-webmvc-ui
 - springfox-swagger2 & springfox-swagger-ui
-- mysql-connector-java
+- postgresql
 - lombok
 - spring-boot-devtools
 
@@ -156,13 +156,13 @@ Key properties in `application.properties`:
 
 ```properties
 # Database
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/ems
-spring.datasource.username=root
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/ems
+spring.datasource.username=postgres
 spring.datasource.password=password
 
 # JPA/Hibernate
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format.sql=true
@@ -171,7 +171,7 @@ spring.jpa.properties.hibernate.format.sql=true
 ## 🐛 Troubleshooting
 
 ### Connection Refused Error
-Ensure MySQL is running and the database `ems` exists with correct credentials.
+Ensure PostgreSQL is running and the database `ems` exists with correct credentials.
 
 ### TypeTag.UNKNOWN Error
 This project uses Java 21. Ensure your Java version matches in `pom.xml`:
