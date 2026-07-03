@@ -168,14 +168,6 @@ spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format.sql=true
 ```
 
-## 🧪 Testing
-
-Run tests with:
-
-```bash
-mvn test
-```
-
 ## 🐛 Troubleshooting
 
 ### Connection Refused Error
